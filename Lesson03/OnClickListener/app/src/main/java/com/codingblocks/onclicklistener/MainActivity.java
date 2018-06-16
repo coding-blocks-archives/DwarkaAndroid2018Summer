@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
 //
 //            }
 //        };
+        MyOnClickListener m = new MyOnClickListener(this);
 
+        b.setOnClickListener(m);
         final Context ctx = this;
 
         //Creates an object of an anonymous inner class that implements the OnClickListener Interface

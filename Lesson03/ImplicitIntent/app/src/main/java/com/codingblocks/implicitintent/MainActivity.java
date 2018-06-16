@@ -19,6 +19,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Intent intent = new Intent();
+                intent.setAction("android.intent.action.VIEW");
+                intent.setData(Uri.parse("www.google.com"));
+
                 Intent i = new Intent();
                 i.setAction("harshit.dwivedi");
                 i.putExtra("hello","world");

@@ -27,10 +27,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main3Activity">
+        <activity android:name=".Main3Activity"
+            android:label="DemoApp">
 
             <intent-filter>
-                <action android:name="harshit.dwivedi" />
+                <action android:name="android.intent.action.VIEW" />
+                <data android:scheme="https" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
