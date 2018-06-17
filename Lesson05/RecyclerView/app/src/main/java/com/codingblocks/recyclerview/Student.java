@@ -1,11 +1,6 @@
-package com.codingblocks.listviewcustomadapter;
+package com.codingblocks.recyclerview;
 
-public class Student extends Object{
-
-    private String name,batch,number,location;
-
-    public Student() {
-    }
+public class Student{
 
     public Student(String name, String batch, String number, String location) {
         this.name = name;
@@ -13,6 +8,8 @@ public class Student extends Object{
         this.number = number;
         this.location = location;
     }
+
+    private String name,batch,number,location;
 
     public String getName() {
         return name;
