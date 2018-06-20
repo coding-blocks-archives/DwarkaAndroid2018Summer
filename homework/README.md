@@ -1,11 +1,11 @@
 # Coding Blocks Homework Repository : Make Code Great Again!
-A place where EveryOne will be adding their code
+A place where EveryOne will be adding their code.
 
 ---
 
 ## What the hell just happenned? That's not the code we did in class?!  
-Nothing Bad,Don't Worry . I just cleaned the code.Your machine , won't blow up, I Promise :smile:    
-All your PR attempts during the class has been merged  and they are present inside the  **(Git_Session)[www.google.com]** folder.  
+Nothing Bad,Don't Worry . I just cleaned the code.Your machine won't blow up, I Promise :smile:    
+All your PR attempts during the class has been merged  and they are present inside the  **[Git_Session](https://github.com/coding-blocks-archives/DwarkaAndroid2018Summer/tree/master/homework/Git_Session/attempts_classroom)** folder.  
 
 ## Grr,  But it did. Just tell me quick, what to do!
 
@@ -25,8 +25,6 @@ All your PR attempts during the class has been merged  and they are present insi
 		2.  `git pull`
 
 ## Meh,Ok . What's with this `Ansh_Sachdeva` and Where are the other Github session Related Files?  
-	*  `Git_Session` You will find all the github related content(+more) in today's Session Here    
+*  **[Git_Session](https://github.com/coding-blocks-archives/DwarkaAndroid2018Summer/tree/master/homework/Git_Session/attempts_classroom)**` You will find all the github related content(+more) in today's Session Here    
 
-	*  `Ansh_Sachdeva` : this is a Sample Repo . like which you will be creating Projects. From now On You will be  creating
-	     a Repo of `Your_Name` just like this, and submit each week's challange inside that folder only. * **Note** :As discussed,
-	     Information related UI challange app that I showed in the class will be posted here by 21.6.18 mid night. Do keep a check :P* 
+*  `Ansh_Sachdeva` : this is a Sample Repo . like which you will be creating Projects. From now On You will be  creating a `Your_Name` folder just like this, and submit each week's challange/Homework inside that folder only. _**Note** :As discussed, Information related UI challange app that I showed in the class will be posted here by 21.6.18 mid night. Do keep a check :P_
