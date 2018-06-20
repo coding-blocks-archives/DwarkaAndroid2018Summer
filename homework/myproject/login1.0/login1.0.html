@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript Login Form Validation</title>
+    <link rel="stylesheet" href="login1.0.css"/>
+    <!-- Include JS File Here -->
+    <script src="login1.0.js"></script>
+
+</head>
+<body bgcolor="#87ceeb">
+
+<h1 align="center"><b>DTU Library</b></h1>
+
+<div class="container">
+    <div class="main">
+        <h2>DTU Library Login Page</h2>
+        <form id="form_id" method="post" name="myform">
+            <label>Card Number :</label>
+            <input type="text" name="Card Number" id="Card Number"/>
+            <label>Phone Number :</label>
+            <input type="number" name="Phone Number" id="Phone Number"/>
+            <input type="button" value="Login" id="submit" onclick="validate()"/>
+        </form>
+        <span><b class="note">Note : </b>For this demo use following Card Number and Phone Number. <br/><b class="valid">Card Number : 123456<br/>Phone Number : 9876543210</b></span>
+    </div>
+</div>
+
+</body>
+</html>
