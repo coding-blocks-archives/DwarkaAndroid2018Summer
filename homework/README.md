@@ -13,7 +13,7 @@ All your PR attempts during the class has been merged  and they are present insi
 	* go to your profile page on github.com  
 	* go to `your`  DwarkaAndroid2018Summer repo under the `repository`  button
 	* settings > delete this archive (in the bottom) [ **Warning** : this will also delete 
-	   all the offline changes and would cause error in your local repository    
+	   all the local changes and would cause error in your offline repository    
 	* `Fork` the  DwarkaAndroid2018Summer  repo again.    
 
  * **Long-Term, Good method** :    
