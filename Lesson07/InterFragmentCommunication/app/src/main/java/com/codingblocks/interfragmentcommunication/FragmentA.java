@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class FragmentA extends Fragment {
 
@@ -16,21 +17,14 @@ public class FragmentA extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_a, container, false);
         Button btn = view.findViewById(R.id.btnAdd);
+        final EditText editText = view.findViewById(R.id.etFragA);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-//                Communicator communicator = new Communicator() {
-//                    @Override
-//                    public void doSomething() {
-//
-//                    }
-//                };
-//                MainActivity ma = (MainActivity) getActivity();
-
+                String enteredString = editText.getText().toString();
                 Communicator ma = (Communicator) getActivity();
-                ma.doSomething();
+                ma.doSomething(enteredString);
                 //Start Fragment B
             }
         });

@@ -2,20 +2,17 @@ package com.codingblocks.interfragmentcommunication;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 
-public class MainActivity extends AppCompatActivity implements Communicator {
+public class DetailActivity extends AppCompatActivity implements Communicator{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_detail);
     }
 
     @Override
     public void doSomething(String name) {
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.container, new FragmentB(name))
-                .commit();
+
     }
 }
