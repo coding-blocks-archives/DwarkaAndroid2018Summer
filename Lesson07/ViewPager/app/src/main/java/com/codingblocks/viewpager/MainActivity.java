@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
             super(fm);
         }
 
-        @Nullable
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position){
