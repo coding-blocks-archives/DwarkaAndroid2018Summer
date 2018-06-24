@@ -1,5 +1,6 @@
 package com.codingblocks.interfragmentcommunication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,10 +13,15 @@ import android.widget.TextView;
 
 public class FragmentB extends Fragment {
 
-    String enteredText;
 
-    public FragmentB(String enteredText) {
-        this.enteredText = enteredText;
+    public static FragmentB newFragment(String name) {
+        FragmentB fragment = new FragmentB();
+
+        Bundle args = new Bundle();
+        args.putString("KEY",name);
+
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Nullable
@@ -23,9 +29,13 @@ public class FragmentB extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_b, container, false);
 
+        Bundle bundle = getArguments();
+
+        String name = bundle.getString("KEY");
+
         TextView textView = view.findViewById(R.id.tvFragB);
 
-        textView.setText(enteredText);
+        textView.setText(name);
         return view;
     }
 }

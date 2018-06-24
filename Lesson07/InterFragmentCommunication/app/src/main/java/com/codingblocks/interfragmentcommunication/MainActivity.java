@@ -12,10 +12,30 @@ public class MainActivity extends AppCompatActivity implements Communicator {
         setContentView(R.layout.activity_main);
     }
 
+//    void startFragmentB(){
+//        FragmentB fragmentB = new FragmentB();
+//
+//        Bundle bundle = new Bundle();
+//        bundle.putString("KEY",name);
+//
+//        fragmentB.setArguments(bundle);
+//
+//    }
+
     @Override
     public void doSomething(String name) {
+
+//        FragmentB fragmentB = new FragmentB();
+//
+//        Bundle bundle = new Bundle();
+//        bundle.putString("KEY",name);
+//
+//        fragmentB.setArguments(bundle);
+
+        FragmentB fragmentB = FragmentB.newFragment(name);
+
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.container, new FragmentB(name))
+                .add(R.id.container, fragmentB)
                 .commit();
     }
 }

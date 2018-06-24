@@ -14,6 +14,12 @@
         android:id="@+id/fragA"
         android:name="com.codingblocks.interfragmentcommunication.FragmentA"/>
 
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragmentB"
+        android:name="com.codingblocks.interfragmentcommunication.FragmentB" />
+
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"

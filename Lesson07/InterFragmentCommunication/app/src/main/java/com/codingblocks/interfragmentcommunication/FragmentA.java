@@ -12,6 +12,15 @@ import android.widget.EditText;
 
 public class FragmentA extends Fragment {
 
+    public static FragmentA newInstance() {
+
+        Bundle args = new Bundle();
+
+        FragmentA fragment = new FragmentA();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
