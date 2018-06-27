@@ -1,20 +1,16 @@
-package com.codingblocks.networking;
+package com.codingblocks.postsfetch;
 
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
@@ -26,17 +22,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final EditText editText = findViewById(R.id.etUrl);
         textView = findViewById(R.id.tvResult);
-        Button button = findViewById(R.id.btnFetch);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MyNetworkTask myNetworkTask = new MyNetworkTask();
-                myNetworkTask.execute(editText.getText().toString());
-            }
-        });
+        MyNetworkTask myNetworkTask = new MyNetworkTask();
+        myNetworkTask.execute("https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=6ea5b3ad9ba04139b8601638cc7a61f2");
     }
 
     class MyNetworkTask extends AsyncTask<String, Void, String> {
