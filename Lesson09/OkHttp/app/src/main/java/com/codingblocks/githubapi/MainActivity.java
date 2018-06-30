@@ -4,7 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
+import java.util.ArrayList;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -41,6 +44,34 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 final String result = response.body().string();
                 Log.e("TAG", "onResponse: " + result);
+
+                Gson gson = new Gson();
+                Result objectResult = gson.fromJson(result,Result.class);
+
+                ArrayList<Article> articles = objectResult.getArticles();
+
+
+                //For fragment, this will be getActivity()
+                MainActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        //Find the Recyclerview
+                        //Set the Layout Manager
+                        //Create the Adapter
+                        //Set the Adapter
+                    }
+                });
+
+//                for (int i =0; i< articles.size(); i++){
+////
+////                    Article article = articles.get(i);
+////
+////                }
+
+                //For testing only
+                for (Article article : articles){
+                    Log.e("TAG", "onResponse: " + article.getTitle());
+                }
 
 //                MainActivity.this.runOnUiThread(new Runnable() {
 //                    @Override
