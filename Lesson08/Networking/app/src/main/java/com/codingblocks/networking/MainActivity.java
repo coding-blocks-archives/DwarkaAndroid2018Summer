@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 //Open a new Connection using the URL
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
-                //Store the contents of the webpage as a Stream
+                //Store the contents of the web-page as a Stream
                 InputStream inputStream = httpURLConnection.getInputStream();
 
                 //Create a Scanner from the Stream to get data in a human readable form
@@ -67,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
                     result = scanner.next();
                 }
                 return result;
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
