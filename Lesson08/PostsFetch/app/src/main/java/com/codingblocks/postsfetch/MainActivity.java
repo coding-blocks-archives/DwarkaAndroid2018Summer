@@ -3,10 +3,8 @@ package com.codingblocks.postsfetch;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -32,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView = findViewById(R.id.tvResult);
 
         MyNetworkTask myNetworkTask = new MyNetworkTask();
         myNetworkTask.execute("https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=6ea5b3ad9ba04139b8601638cc7a61f2");
@@ -64,14 +61,14 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject source = articleObject.getJSONObject("source");
                 String id = source.getString("id");
                 String name = source.getString("name");
-                Source sourceJava = new Source(id,name);
+                Source sourceJava = new Source(id, name);
 
-                Article article = new Article(author,title,desc,url,imageUrl,published,sourceJava);
+                Article article = new Article(author, title, desc, url, imageUrl, published, sourceJava);
 
                 articleArrayList.add(article);
             }
 
-            Result result = new Result(status,totalResults,articleArrayList);
+            Result result = new Result(status, totalResults, articleArrayList);
 
             return result;
 
@@ -119,12 +116,17 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            textView.setText(s);
             Result result = convertJsonToResponse(s);
 
             ArrayList<Article> articleArrayList = result.getArticles();
 
-//
+            RecyclerView recyclerView = findViewById(R.id.rvNews);
+            recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+            NewsAdapter newsAdapter = new NewsAdapter(articleArrayList);
+
+            recyclerView.setAdapter(newsAdapter);
+
+
 //            result.getStatus();
 //            result.getTotalResults();
         }
