@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        //Find the Recyclerview
+                        //Find the Recyclerview using findVieById
                         //Set the Layout Manager
                         //Create the Adapter
                         //Set the Adapter
