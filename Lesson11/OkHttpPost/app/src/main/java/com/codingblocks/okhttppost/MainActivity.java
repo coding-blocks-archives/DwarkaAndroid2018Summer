@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
 
 import okhttp3.Call;
@@ -41,19 +43,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void postStudentToServer(Student student) {
+        Gson gson = new Gson();
 
         OkHttpClient okHttpClient = new OkHttpClient();
 
         //This will be provided by your employer
         String posrUrl = "http://ptsv2.com/t/dsp4n-1530702440/post";
 
+        String studentJson = gson.toJson(student);
+
 //        "application/json"
 
-        //Set the type of document that we will be sendin
+        //Set the type of document that we will be sending
         MediaType mediaType = MediaType.parse("application/json");
 
         //Create the request body, i.e. the request that we will send to the server
-        RequestBody requestBody = RequestBody.create(mediaType, "{ hello : world }");
+        RequestBody requestBody = RequestBody.create(mediaType, studentJson);
 
         //We create the request object
         final Request request = new Request.Builder()
