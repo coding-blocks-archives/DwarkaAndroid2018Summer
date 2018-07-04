@@ -73,12 +73,13 @@ public class MainActivity extends AppCompatActivity {
         final AlertDialog customAlert = new AlertDialog.Builder(this)
 //                .setTitle("Post Data to Server")
                 .setView(view)
+                //Use this only when you don't have any interactions to be done with the views
+//                .setView(R.layout.dialog_view)
                 .setPositiveButton("Post", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         EditText email = view.findViewById(R.id.etEmail);
                         EditText password = view.findViewById(R.id.etPassword);
-
 //                        Toast.makeText(MainActivity.this, email.getText().toString() + "  " + password.getText().toString(), Toast.LENGTH_SHORT).show();
                         //Post the data to the server
                     }
