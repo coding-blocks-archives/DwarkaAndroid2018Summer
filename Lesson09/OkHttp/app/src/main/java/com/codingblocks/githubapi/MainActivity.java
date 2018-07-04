@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
                 ArrayList<Article> articles = objectResult.getArticles();
 
-
                 //For fragment, this will be getActivity()
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
