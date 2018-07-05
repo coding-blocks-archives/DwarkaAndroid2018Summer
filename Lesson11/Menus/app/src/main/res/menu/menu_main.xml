@@ -1,0 +1,42 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="2"
+        android:title="Home"
+        android:icon="@drawable/ic_settings_black_24dp"
+        app:showAsAction="never" >
+        <menu>
+            <item android:icon="@drawable/ic_launcher_background"
+                android:title="something"
+                app:showAsAction="never">
+
+            </item>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/action_help"
+        android:orderInCategory="1"
+        android:title="Help"
+        android:icon="@drawable/ic_help"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_suggestion"
+        android:orderInCategory="3"
+        android:title="Suggestions"
+        android:icon="@drawable/ic_help"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="4"
+        android:title="About"
+        android:icon="@drawable/ic_help"
+        app:showAsAction="ifRoom" />
+
+
+
+</menu>
