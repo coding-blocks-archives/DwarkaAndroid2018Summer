@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     TextView gravityX, gravityY, gravityZ;
     LinearLayout rootLayout;
+    SensorManager sensorManager;
 
     public static final String TAG = "MainActivity";
 
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         rootLayout = findViewById(R.id.rootLayout);
 
-        SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 
         List<Sensor> allSensors = sensorManager.getSensorList(Sensor.TYPE_ALL);
 
@@ -52,30 +53,49 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         }
 
-        Sensor gravitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
-        Sensor proximitySensor = sensorManager.getDefaultSensor(TYPE_PROXIMITY);
 
-        //Register the Gravity sensor to listen for updates on it
-        sensorManager.registerListener(this, gravitySensor, SensorManager.SENSOR_DELAY_UI);
 //        sensorManager.registerListener(this, proximitySensor, SensorManager.SENSOR_DELAY_UI);
     }
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         float[] sensorValues = sensorEvent.values;
-        gravityX.setText(""+sensorValues[0]);
-        gravityY.setText(""+sensorValues[1]);
-        gravityZ.setText(""+sensorValues[2]);
+//        gravityX.setText("" + sensorValues[0]);
+//        gravityY.setText("" + sensorValues[1]);
+//        gravityZ.setText("" + sensorValues[2]);
 
-        int red,green,blue;
+        float red = Math.abs(sensorValues[0]);
+        float green = Math.abs(sensorValues[1]);
+        float blue = Math.abs(sensorValues[2]);
 
-//        Color color = ....;
+        int redColor = (int) ((red / SensorManager.GRAVITY_EARTH) * 255);
+        int greenColor = (int) ((green / SensorManager.GRAVITY_EARTH) * 255);
+        int blueColor = (int) ((blue / SensorManager.GRAVITY_EARTH) * 255);
 
-        rootLayout.setBackgroundColor();
+
+        int color = Color.rgb(redColor, greenColor, blueColor);
+
+        rootLayout.setBackgroundColor(color);
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Sensor gravitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
+        Sensor proximitySensor = sensorManager.getDefaultSensor(TYPE_PROXIMITY);
+
+        //Register the Gravity sensor to listen for updates on it
+        sensorManager.registerListener(this, gravitySensor, SensorManager.SENSOR_DELAY_UI);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        sensorManager.unregisterListener(this);
     }
 }
