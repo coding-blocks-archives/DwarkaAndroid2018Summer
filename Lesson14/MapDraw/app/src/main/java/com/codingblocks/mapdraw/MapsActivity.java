@@ -72,7 +72,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         lastKnownLocation = sydney;
 
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney").draggable(true));
+        //addMarker method returns a Marker object which can be stored to remove the marker later
+        Marker marker = mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney").draggable(true));
+//        marker.remove();
+
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 

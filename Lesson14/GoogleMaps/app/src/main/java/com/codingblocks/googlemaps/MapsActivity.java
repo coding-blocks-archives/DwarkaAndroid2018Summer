@@ -18,6 +18,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener {
 
     private GoogleMap mMap;
+    LatLng lastKnownLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,15 +74,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onLocationChanged(Location location) {
         LatLng myCurrentLatLng = new LatLng(location.getLatitude(), location.getLongitude());
 
+        if (lastKnownLocation == null){
+            lastKnownLocation = myCurrentLatLng;
+        }else {
+            MarkerOptions markerOptions = new MarkerOptions()
+                    .position(myCurrentLatLng)
+                    .title("My Current Location");
+
+            mMap.addMarker(markerOptions);
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(myCurrentLatLng, 15.0f));
+
+        }
+
         //Removes all the markers
 //        mMap.clear();
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(myCurrentLatLng)
-                .title("My Current Location");
-
-        mMap.addMarker(markerOptions);
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(myCurrentLatLng, 15.0f));
 
     }
 
