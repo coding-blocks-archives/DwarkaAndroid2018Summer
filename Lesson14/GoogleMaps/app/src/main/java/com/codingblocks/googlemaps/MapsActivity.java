@@ -38,6 +38,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
+        //Modify map's UI settings
+
+        mMap.getUiSettings().setZoomControlsEnabled(true);
+        mMap.getUiSettings().setCompassEnabled(true);
+        mMap.getUiSettings().setMyLocationButtonEnabled(true);
+
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
                 5000,
                 25,
@@ -66,6 +72,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onLocationChanged(Location location) {
         LatLng myCurrentLatLng = new LatLng(location.getLatitude(), location.getLongitude());
+
+        //Removes all the markers
+//        mMap.clear();
 
         MarkerOptions markerOptions = new MarkerOptions()
                 .position(myCurrentLatLng)
