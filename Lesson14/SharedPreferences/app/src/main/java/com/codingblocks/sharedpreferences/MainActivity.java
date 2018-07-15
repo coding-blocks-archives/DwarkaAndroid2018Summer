@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         tvCount = findViewById(R.id.tvCount);
         SharedPreferences preferences = getSharedPreferences("my_prefs_file", MODE_PRIVATE);
 
+        preferences.getAll();
 
         if (preferences.contains("COUNT")) {
             count = preferences.getInt("COUNT", 0);

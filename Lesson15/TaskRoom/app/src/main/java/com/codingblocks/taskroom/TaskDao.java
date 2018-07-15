@@ -1,5 +1,6 @@
 package com.codingblocks.taskroom;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -29,8 +30,11 @@ public interface TaskDao {
     void updateTask(Task task);
 
     @Query("SELECT * FROM task_table")
-    List<Task> getAllTasks();
+    //Wrapping anything inside a LiveData makes it an observable
+    //meaning you can observe it for changes
+    LiveData<List<Task>> getAllTasks();
 
     @Query("SELECT * FROM task_table WHERE id = :id")
     Task getTaskWithId(long id);
+
 }

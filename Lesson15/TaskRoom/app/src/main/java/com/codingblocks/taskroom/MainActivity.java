@@ -1,14 +1,21 @@
 package com.codingblocks.taskroom;
 
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.migration.Migration;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,9 +56,38 @@ public class MainActivity extends AppCompatActivity {
                         false);
 
                 taskDao.insertTask(task);
-
-                Log.e("TAG", "onClick: " + taskDao.getAllTasks().size());
             }
         });
+
+//        LiveData<List<Task>> listLiveData =  taskDao.getAllTasks();
+
+
+//        listLiveData.observe(this, new Observer<List<Task>>() {
+//            @Override
+//            public void onChanged(@Nullable List<Task> tasks) {
+//
+//                //Callback with a list of all the tasks
+//
+//            }
+//        });
+
+        MyAndroidViewModel myAndroidViewModel = ViewModelProviders.of(this).get(MyAndroidViewModel.class);
+
+        myAndroidViewModel.getTasksFromDb().observe(this, new Observer<List<Task>>() {
+            @Override
+            public void onChanged(@Nullable List<Task> tasks) {
+
+            }
+        });
+
+        MyViewModel myViewModel = ViewModelProviders.of(this).get(MyViewModel.class);
+
+        myViewModel.getResponseLive().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                
+            }
+        });
+
     }
 }
