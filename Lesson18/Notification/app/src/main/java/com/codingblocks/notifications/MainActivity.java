@@ -3,7 +3,14 @@ package com.codingblocks.notifications;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,9 +41,21 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        Intent i = new Intent(this, MainActivity.class);
+        i.putExtra("KEY", "VALUE");
+
+        PendingIntent pi = PendingIntent.getActivity(this,
+                420,
+                i,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+
+
         final Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_android_black)
                 .setContentTitle("Hi I'm a notfication")
+                .setContentIntent(pi)
+                .setAutoCancel(true)
+                .addAction(R.drawable.ic_android_black, "Reply", pi)
                 .setContentText("Welcome to Coding Blocks!")
                 .build();
 
@@ -74,10 +93,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void showExpandableImage(View view) {
 
+        String appName = getString(R.string.app_name);
+
+        //Most of the methods which are available on only higher APIs
+        //have backward compatibility added via ContextCompat class
+
+        Drawable drawable = ContextCompat.getDrawable(this, R.drawable.ic_umbrella);
+
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_umbrella);
+
         final Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_android_black)
                 .setContentTitle("Hi I'm a notfication")
                 .setContentText("Welcome to Coding Blocks!")
+                .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(bitmap))
                 .build();
 
         count++;
