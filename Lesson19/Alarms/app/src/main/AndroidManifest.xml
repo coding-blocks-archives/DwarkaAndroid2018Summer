@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.codingblocks.services">
+    package="com.codingblocks.alarms">
 
     <application
         android:allowBackup="true"
@@ -17,17 +17,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".BackgroundService" />
-        <service android:name=".MyIntentService" />
-        <service android:name=".MyForegroundService" />
-
-        <!--<receiver android:name=".MyPowerReceiver">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.ACTION_POWER_CONNECTED" />-->
-                <!--<action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />-->
-            <!--</intent-filter>-->
-        <!--</receiver>-->
-
+        <receiver android:name=".NotificationBroadcast" />
     </application>
 
 </manifest>

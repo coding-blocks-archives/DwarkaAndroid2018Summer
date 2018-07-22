@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnSubmit = findViewById(R.id.btnSubmit);
 
+        int a = 0/0;
+
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.
                 getInstance();
 
@@ -25,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
         final DatabaseReference childRef = rootRef.child("abcd");
         final EditText etName = findViewById(R.id.etName);
+
+
+
+
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override

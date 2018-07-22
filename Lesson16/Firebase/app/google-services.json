@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "670128563857-i7cbntrh70o8fkl077bs7tmqd23csjlo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codingblocks.firebase",
+            "certificate_hash": "8dc2654a57fcfd0d0b811f827853988ec74914d5"
+          }
+        },
+        {
           "client_id": "670128563857-2nev5fmhsg11ssqm4ad6sd661o17vtd9.apps.googleusercontent.com",
           "client_type": 3
         }
